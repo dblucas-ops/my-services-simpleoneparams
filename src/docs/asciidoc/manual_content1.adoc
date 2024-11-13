@@ -1,0 +1,22 @@
+== Specifications
+
+[cols=2*]
+|===
+|*API Endpoint*
+|https://{env}.mapfreapis.com/mapfre/{version}/financials/
+
+|*Primary Category*
+|Financials
+
+|*Authentication Model*
+|API Key, OAuth 2
+
+|*Architectural Style*
+|REST
+
+|*Supported Request Formats*
+|URI Query String/CRUD
+
+|*Supported Response Formats*
+|JSON
+|===

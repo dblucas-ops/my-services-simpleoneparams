@@ -1,0 +1,36 @@
+# RabbitMQ connection details.
+spring:
+  security:
+     oauth2:
+        client:
+          registration:
+            autopay:
+               authorization-grant-type: client_credentials
+               client-id: 4576d634-5c45-4c96-bb87-e7c40f5e9fdb
+               client-secret: a1c63042-0432-4737-b46d-ad6ffc9d5083
+               scope: proxy,rating
+          provider:        
+            autopay: 
+              token-uri: https://sbx.mapfreapis.com/auth/oauth/v2/token  
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=oramadev)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=MESDEV1)))
+    username: rd_user_dev
+    password: gkaa3KKU
+    
+# Server configuration
+server:
+  port: 8700
+  ssl:
+    key-store: classpath:musa-middleware-services-keystore.p12
+    key-store-password: secret    
+    trust-store: classpath:musa-middleware-services-truststore.jks
+    trust-store-password: secret
+    client-auth: need    
+    
+# Logging configuration
+logging:
+  file: 
+    name: /mapfre/logs/livo_middleware/devops/devops-api.log
+  level:
+    root: INFO

@@ -1,0 +1,50 @@
+# API General Information
+api:
+  title: DevOps API
+  description: The DevOps API provides support for DevOps related operations. The DevOps name space contains data.
+  version: 1.0
+  
+# Lockfile config
+lockfilewriter:
+  extension: lock    
+
+# Spring configuration
+spring:
+  application:
+    name: devops-api
+  cloud:
+    consul:
+      config:
+        prefix: config # root folder for all configurations 
+        data-key: data # key to lookup consul configuration
+        enabled: true # setting this value to "false" disables Consul Config
+        fail-fast: true # applications won't start if Consul is not available for configuration
+        format: yaml # more convenient to store a blob of properties in YAML or Properties format as opposed to individual key/value pairs
+      discovery:
+        scheme: https
+        health-check-path: ${server.servlet.context-path}${management.endpoints.web.base-path}/health
+        health-check-tls-skip-verify: true
+        health-check-interval: 30s
+  jackson:
+      serialization:
+        write-dates-as-timestamps: false # to serialize dates types as string
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect     
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false   
+            
+# Server configuration
+server:
+  servlet:
+    context-path: /${spring.application.name}
+
+# Boot actuator configuration
+management:
+  endpoints:
+    web:
+      base-path: /manage  
+      exposure:        include: info,health,mappings
+  health:    solr: 
+      enabled: false        

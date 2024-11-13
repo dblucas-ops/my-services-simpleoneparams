@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Action" type="ActionCode"/>	
+	<xs:element name="AccountNumber" type="Alpha50StringNullable"/>	
+	<xs:element name="Reason" type="Alpha50StringNullable"/>
+	<xs:element name="CheckNumber" type="Alpha50StringNullable"/>	
+	<xs:element name="Source" type="Alpha10StringNullable"/>	
+	<xs:element name="RequestDate" type="Date"/>
+	<xs:element name="CheckVoidRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Source"/>
+				<xs:element ref="AccountNumber"/>
+				<xs:element ref="CheckNumber"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="RequestDate"/>
+				<xs:element ref="Reason"/>
+			</xs:sequence>
+			</xs:complexType>
+	</xs:element>		
+	
+	<xs:simpleType name="Date">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="Alpha10StringNullable">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Alpha50StringNullable">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>		
+	
+	<xs:simpleType name="ActionCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="STOP|VOID"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

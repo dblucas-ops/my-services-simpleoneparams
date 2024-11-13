@@ -1,0 +1,16 @@
+gwpc:
+  edge:
+    rpc:
+      endpoint: testEdgeEndpoint
+      jsonrpcversion: 2.0
+      credential:
+        username: testEdge
+        password: testedgepwd
+
+  acmic:
+    rpc:
+      endpoint: testAcmicEndpoint
+      jsonrpcversion: 2.0
+      credential:
+        username: testAcmic
+        password: testacmicpwd
