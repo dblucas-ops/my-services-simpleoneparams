@@ -30,12 +30,6 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>com.dublinusa</groupId>
-			<artifactId>dublin-commons</artifactId>
-			<version>${dublin.commons.version}</version>
-		</dependency>
-		<!-- Spring Boot Framework -->
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 			<exclusions>
