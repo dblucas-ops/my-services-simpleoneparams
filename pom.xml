@@ -164,7 +164,7 @@
 		<repository>
 			<id>dublin-lib-proxy</id>
 			<name>dublin</name>
-			<url>https://nexuspro.dublinusa.com/repository/maven-proxy-group</url>
+			<url>https://repo1.maven.org/maven2/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
