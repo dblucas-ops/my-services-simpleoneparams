@@ -34,7 +34,6 @@
 		<swagger.json.output>${resources.generated}/swagger</swagger.json.output>
 	</properties>
 	<dependencies>
-		<!-- dublin Commons -->
 		<dependency>
 			<groupId>com.dublinusa</groupId>
 			<artifactId>dublin-commons</artifactId>
@@ -172,17 +171,6 @@
 		</repository>
 	</repositories>
 
-	<!-- Do not add any additional repositories.  This will proxy all external repos needed.  -->
-	<pluginRepositories>
-		<pluginRepository>
-			<id>dublin-lib-proxy</id>
-			<name>dublin</name>
-			<url>https://nexuspro.dublinusa.com/repository/maven-proxy-group</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
 	<build>
 		<plugins>
 			<!-- Spring Boot Maven Plugin -->
