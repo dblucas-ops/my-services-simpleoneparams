@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dublinusa.devops</groupId>
+	<artifactId>devops-api</artifactId>
+
+	<version>0.0.10-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>DEVOPS API</name>
+	<description>REST API to support the DEVOPS domain.</description>
+	<parent>
+		<groupId>com.dublinusa</groupId>
+		<artifactId>dublin-commons-parent-pom</artifactId>
+		<version>2.0.0-SNAPSHOT</version>
+	</parent>
+	<properties>
+		<env.build.num>0.0</env.build.num>
+		<env.change.set.num>0.0</env.change.set.num>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<dublin.commons.version>2.0.9-RELEASE</dublin.commons.version>
+		<dublin.integrations-lexisnexis.version>1.0.0.RELEASE</dublin.integrations-lexisnexis.version>
+		<spring.cloud.version>Hoxton.SR12</spring.cloud.version>
+		<spring.core.version>2.3.2.RELEASE</spring.core.version>
+		<oracle.version>12.1.0.1.0</oracle.version>
+		<sonar.projectKey>com.dublinusa.devops:devops-api</sonar.projectKey>
+		<sonar.projectName>LiVO Middleware - DEVOPS API</sonar.projectName>
+		<project.version.suffix>SNAPSHOT</project.version.suffix>
+		<resources.generated>${project.build.directory}</resources.generated>
+		<swagger.json.output>${resources.generated}/swagger</swagger.json.output>
+	</properties>
+	<dependencies>
+		<!-- dublin Commons -->
+		<dependency>
+			<groupId>com.dublinusa</groupId>
+			<artifactId>dublin-commons</artifactId>
+			<version>${dublin.commons.version}</version>
+		</dependency>
+		<!-- Spring Boot Framework -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j.impl</groupId>
+					<artifactId>slf4j-simple</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-all</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-batch</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+		<!-- End Spring Boot framework -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-staticdocs</artifactId>
+		</dependency>
+		<!-- End Swagger -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.ws/spring-ws-core -->
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+			<version>2.3.1.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<!--<version>2.1.2.RELEASE</version>-->
+				<version>${spring.core.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring.cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<repositories>
+		<repository>
+			<id>dublin-lib-proxy</id>
+			<name>dublin</name>
+			<url>https://nexuspro.dublinusa.com/repository/maven-proxy-group</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<!-- Do not add any additional repositories.  This will proxy all external repos needed.  -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>dublin-lib-proxy</id>
+			<name>dublin</name>
+			<url>https://nexuspro.dublinusa.com/repository/maven-proxy-group</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	<build>
+		<plugins>
+			<!-- Spring Boot Maven Plugin -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.core.version}</version>
+				<executions>
+					<execution>
+						<id>repackage</id>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>build-info</id>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+						<configuration>
+							<additionalProperties>
+								<build_num>${env.build.num}</build_num>
+								<change_set_num>${env.change.set.num}</change_set_num>
+							</additionalProperties>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Surefire plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<!-- Config. for document generation, check the parent pom Plugin management
+				session for details -->
+			<!-- Swagger2markup plugin to generate asciidoc from Swagger file -->
+			<plugin>
+				<groupId>io.github.swagger2markup</groupId>
+				<artifactId>swagger2markup-maven-plugin</artifactId>
+			</plugin>
+			<!-- Runs the generated asciidoc through Asciidoctor to generate other
+				documentation types, such as PDFs or HTML5 -->
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+			</plugin>
+			<!-- Copies the generated html and pdf documents to the static folder,
+				so they are included in the final jar and can be served as static content -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<!-- Generates the POJOs for BottomLine Entities -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>xjc1</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<phase>generate-sources</phase>
+							<sources>
+								<source>src/main/resources/schema/client/bottomline/WebSeriesXMLStandardFormat.xsd</source>
+							</sources>
+							<outputDirectory>${project.basedir}/target/generated/src/main/java</outputDirectory>
+							<packageName>com.dublinusa.financials.bottomline</packageName>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>xjc2</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<phase>generate-sources</phase>
+							<sources>
+								<source>src/main/resources/schema/client/bottomline/CheckVoidRequest.xsd</source>
+							</sources>
+							<outputDirectory>${project.basedir}/target/generated/src/main/java</outputDirectory>
+							<packageName>com.dublinusa.financials.bottomline</packageName>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.8</version>
+				<configuration>
+					<apiSources>
+						<apiSource>
+							<springmvc>true</springmvc>
+							<attachSwaggerArtifact>true</attachSwaggerArtifact>
+							<swaggerFileName>swagger-v${project.version}</swaggerFileName>
+							<outputPath>generated/swagger-ui</outputPath>
+							<outputFormats>json</outputFormats>
+							<locations>
+								<location>com.dublinusa.financials.infrastructure.rest.BankInfoController</location>
+								<location>com.dublinusa.financials.infrastructure.rest.PaymentInstrumentController</location>
+								<location>com.dublinusa.financials.infrastructure.rest.PaymentNotificationController</location>
+								<location>com.dublinusa.financials.infrastructure.rest.RefundsController</location>
+							</locations>
+							<schemes>
+								<scheme>http</scheme>
+								<scheme>https</scheme>
+							</schemes>
+							<host>localhost:9005</host>
+							<basePath>/</basePath>
+							<info>
+								<title>DEVOPS API</title>
+								<version>v2</version>
+								<description>Description of your API BuildDate: ${maven.build.timestamp}</description>
+							</info>
+							<swaggerDirectory>${swagger.json.output}</swaggerDirectory>
+						</apiSource>
+					</apiSources>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+
+
+
+
