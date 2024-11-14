@@ -33,4 +33,5 @@ jobs:
     - name: Bash Test Step
       shell: bash
       run: echo "Build with Maven completed successfully..."
+      run: bash ls -al
  
