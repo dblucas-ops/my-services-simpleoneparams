@@ -17,13 +17,9 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<dublin.commons.version>2.0.9-RELEASE</dublin.commons.version>
-		<dublin.integrations-lexisnexis.version>1.0.0.RELEASE</dublin.integrations-lexisnexis.version>
 		<spring.cloud.version>Hoxton.SR12</spring.cloud.version>
 		<spring.core.version>2.3.2.RELEASE</spring.core.version>
 		<oracle.version>12.1.0.1.0</oracle.version>
-		<sonar.projectKey>com.dublinusa.devops:devops-api</sonar.projectKey>
-		<sonar.projectName>LiVO Middleware - DEVOPS API</sonar.projectName>
 		<project.version.suffix>SNAPSHOT</project.version.suffix>
 		<resources.generated>${project.build.directory}</resources.generated>
 		<swagger.json.output>${resources.generated}/swagger</swagger.json.output>
