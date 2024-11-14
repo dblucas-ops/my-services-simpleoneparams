@@ -30,4 +30,12 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-      
+
+    - name: Bash Test Step
+        shell: bash
+        run: |
+          echo "GH_REPO: $GH_REPO"
+          echo "GH_REPO_O: $GH_REPO_O"
+          echo "GH_T: $GH_T"
+          echo "Build with Maven completed successfully..."
+ 
