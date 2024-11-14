@@ -33,5 +33,5 @@ jobs:
     - name: Debug Statements
       run: |
         echo "Build with Maven completed successfully..."
-        ls -al
+        ls -al target
  
