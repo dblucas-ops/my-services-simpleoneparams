@@ -194,43 +194,6 @@
 			</plugin>
 			<!-- Generates the POJOs for BottomLine Entities -->
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>2.3</version>
-				<executions>
-					<execution>
-						<id>xjc1</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-						<configuration>
-							<phase>generate-sources</phase>
-							<sources>
-								<source>src/main/resources/schema/client/bottomline/WebSeriesXMLStandardFormat.xsd</source>
-							</sources>
-							<outputDirectory>${project.basedir}/target/generated/src/main/java</outputDirectory>
-							<packageName>com.dublinusa.financials.bottomline</packageName>
-							<clearOutputDir>false</clearOutputDir>
-						</configuration>
-					</execution>
-					<execution>
-						<id>xjc2</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-						<configuration>
-							<phase>generate-sources</phase>
-							<sources>
-								<source>src/main/resources/schema/client/bottomline/CheckVoidRequest.xsd</source>
-							</sources>
-							<outputDirectory>${project.basedir}/target/generated/src/main/java</outputDirectory>
-							<packageName>com.dublinusa.financials.bottomline</packageName>
-							<clearOutputDir>false</clearOutputDir>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<groupId>com.github.kongchen</groupId>
 				<artifactId>swagger-maven-plugin</artifactId>
 				<version>3.1.8</version>
