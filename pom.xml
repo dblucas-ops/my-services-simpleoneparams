@@ -169,24 +169,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- Surefire plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-			</plugin>
-			<!-- Config. for document generation, check the parent pom Plugin management
-				session for details -->
-			<!-- Swagger2markup plugin to generate asciidoc from Swagger file -->
-			<plugin>
-				<groupId>io.github.swagger2markup</groupId>
-				<artifactId>swagger2markup-maven-plugin</artifactId>
-			</plugin>
-			<!-- Runs the generated asciidoc through Asciidoctor to generate other
-				documentation types, such as PDFs or HTML5 -->
-			<plugin>
-				<groupId>org.asciidoctor</groupId>
-				<artifactId>asciidoctor-maven-plugin</artifactId>
-			</plugin>
 			<!-- Copies the generated html and pdf documents to the static folder,
 				so they are included in the final jar and can be served as static content -->
 			<plugin>
