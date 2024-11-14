@@ -10,11 +10,6 @@
 	<packaging>jar</packaging>
 	<name>DEVOPS API</name>
 	<description>REST API to support the DEVOPS domain.</description>
-	<parent>
-		<groupId>com.dublinusa</groupId>
-		<artifactId>dublin-commons-parent-pom</artifactId>
-		<version>2.0.0-SNAPSHOT</version>
-	</parent>
 	<properties>
 		<env.build.num>0.0</env.build.num>
 		<env.change.set.num>0.0</env.change.set.num>
