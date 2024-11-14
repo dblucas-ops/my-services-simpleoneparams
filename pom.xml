@@ -169,11 +169,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- Copies the generated html and pdf documents to the static folder,
-				so they are included in the final jar and can be served as static content -->
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-			</plugin>
 			<!-- Generates the POJOs for BottomLine Entities -->
 			<plugin>
 				<groupId>com.github.kongchen</groupId>
