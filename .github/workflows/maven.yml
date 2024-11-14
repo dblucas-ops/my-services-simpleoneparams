@@ -30,8 +30,7 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Bash Test Step
-      shell: bash
+    - name: Debug Statements
       run: echo "Build with Maven completed successfully..."
       run: ls -al
  
