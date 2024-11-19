@@ -29,7 +29,9 @@ jobs:
         cache: maven
 
     - name: Legend
-      run: echo "Execution Date: $(date +'%Y-%m-%d')"
+      run: |
+        echo "Execution Date:"
+        echo "$(date +'%Y-%m-%d')"
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Debug Statements
