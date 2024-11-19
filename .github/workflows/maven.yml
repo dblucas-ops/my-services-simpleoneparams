@@ -30,8 +30,8 @@ jobs:
 
     - name: Legend
       run: |
-        echo "Execution Date:"
-        echo "$(date +'%Y-%m-%d')"
+        echo "Execution Date/Time:"
+        echo "$(date +'%Y-%m-%d %H %M %S')"
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Debug Statements
