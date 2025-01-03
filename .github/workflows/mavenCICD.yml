@@ -28,11 +28,11 @@ jobs:
     - name: Legend
       run: |
         echo "Execution Date/Time:"
-        echo "$(date +'%Y-%m-%d %H:%M:%S') "
+        echo "$(date +'%Y-%m-%d %H:%M:%S')"
     - name: Checkmarx Scan
       run: |
         echo "Checkmarx Scan:"
-        echo "$(date +'%Y-%m-%d %H:%M:%S') "
+        echo "$(date +'%Y-%m-%d %H:%M:%S')"
     - name: Build with Maven
       run: mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
     - name: Debug Statements
