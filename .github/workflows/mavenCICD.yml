@@ -2,14 +2,19 @@ name: Maven Action Workflow
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - develop
   pull_request:
-    branches: [ "main" ]
-
+    branches: 
+      - main
+      - develop
+env:
+  MY_DB_USERNAME = ${{ secrets.MY_DB_USERNAME }}
+  MY_DB_PASSWORD = ${{ secrets.MY_DB_PASSWORD }}
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latestv
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
