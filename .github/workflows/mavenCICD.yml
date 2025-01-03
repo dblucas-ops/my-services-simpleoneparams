@@ -30,7 +30,7 @@ jobs:
         echo "Checkmarx Scan:"
         echo "$(date +'%Y-%m-%d %H:%M:%S')"
     - name: Build with Maven
-      run: mvn -file pom.xml org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report -Denv.build.num=${{ BUILD_NUMBER }} -Denv.change.set.num=${{ GIT_COMMIT }}
+      run: mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
     - name: Debug Statements
       run: |
         echo "Build with Maven completed successfully..."
