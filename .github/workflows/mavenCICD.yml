@@ -12,6 +12,9 @@ jobs:
         env:
           MY_DB_USERNAME: ${{ secrets.MY_DB_USERNAME }}
           MY_DB_PASSWORD: ${{ secrets.MY_DB_PASSWORD }}
+        run: |
+          echo "Deploy artifact:"
+          echo "$(date +'%Y-%m-%d %H:%M:%S')"
   cx:
     needs: init
     runs-on: ubuntu-latest
