@@ -27,7 +27,7 @@ jobs:
         echo "$(date +'%Y-%m-%d %H:%M:%S')"
     - name: Checkmarx Scan
       run: |
-        echo "Execution Date/Time:"
+        echo "Checkmarx Scan:"
         echo "$(date +'%Y-%m-%d %H:%M:%S')"
     - name: Build with Maven
       run: mvn -file pom.xml org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report -Denv.build.num=${{ BUILD_NUMBER }} -Denv.change.set.num=${{ GIT_COMMIT }}
