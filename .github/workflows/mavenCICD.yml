@@ -27,7 +27,6 @@ jobs:
       env:
         CHECKMARX_TOKEN: ${{ checkmarx.token }}
 
-    steps:
      - name: Checkout repository 
 	   uses: actions/checkout@v4
 
