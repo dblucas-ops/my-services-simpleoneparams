@@ -5,6 +5,13 @@ on:
       - main
       - develop
 jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build with Maven
+        run: |
+          echo "Execution Date/Time:"
+          echo "$(date +'%Y-%m-%d %H:%M:%S')"
   build:
     runs-on: ubuntu-latest
     steps:
@@ -17,11 +24,6 @@ jobs:
         cache: maven
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-
-    - name: Legend
-      run: |
-        echo "Execution Date/Time:"
-        echo "$(date +'%Y-%m-%d %H:%M:%S')"
     - name: Checkmarx Scan
       env:
         MY_DB_USERNAME: ${{ secrets.MY_DB_USERNAME }}
@@ -32,13 +34,22 @@ jobs:
     - name: Print Statements
       run: |
         echo "Build with Maven completed successfully..."
-        ls -al target
-    - name: Deploy
-      run: |
-        echo "Deploy artifact:"
-        echo "$(date +'%Y-%m-%d %H:%M:%S')"
-    - name: Publish with Maven
-      run: |
-        echo "Publish with Maven:"
-        echo "$(date +'%Y-%m-%d %H:%M:%S')"
+        ls -al target 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          echo "Deploy artifact:"
+          echo "$(date +'%Y-%m-%d %H:%M:%S')"
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          echo "Deploy artifact:"
+          echo "$(date +'%Y-%m-%d %H:%M:%S')"
+ 
 
