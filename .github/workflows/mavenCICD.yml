@@ -45,10 +45,15 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        run: |
-          echo "Deploy artifact:"
-          echo "$(date +'%Y-%m-%d %H:%M:%S')"
+      - name: Set AWS credentials
+      - uses: keithweaver/aws-s3-github-action@v1.0.0
+        with:
+          command: cp
+          source: ./devops-api-0.0.10-SNAPSHOT.jar
+          destination: s3://holden123bucket/devops-api-0.0.10-SNAPSHOT.jar
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
   publish:
     runs-on: ubuntu-latest
     permissions:
