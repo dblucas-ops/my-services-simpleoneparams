@@ -56,6 +56,7 @@ jobs:
       - name: Build output statements
         run: |
           echo "echo dir listing..."
+          pwd
           ls -al 
       - name: Publish artifact
         run: mvn -file pom.xml deploy
