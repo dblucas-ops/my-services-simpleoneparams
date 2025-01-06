@@ -41,8 +41,6 @@ jobs:
       run: |
         echo "Build with Maven completed successfully..."
         ls -al target
-        mkdir -p /tmp/enterprise-services-devops2
-        cp -R * /tmp/enterprise-services-devops2
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -55,13 +53,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Build output statements
-        run: |
-          echo "echo dir listing..."
-          pwd
-          ls -al
-          ls -al /tmp
-          cp -R /tmp/enterprise-services-devops2/ .
       - name: Publish artifact
         run: mvn -file pom.xml deploy
 
