@@ -57,7 +57,9 @@ jobs:
         run: |
           echo "echo dir listing..."
           pwd
-          ls -al 
+          ls -al
+          cd ..
+          ls -al
       - name: Publish artifact
         run: mvn -file pom.xml deploy
 
