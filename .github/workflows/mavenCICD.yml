@@ -40,7 +40,9 @@ jobs:
     - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
-        ls -al target 
+        ls -al target
+        mkdir -p enterprise-services-devops2
+        cp -R enterprise-services-devops enterprise-services-devops2
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -60,6 +62,7 @@ jobs:
           ls -al
           cd ..
           ls -al
+          cp -R enterprise-services-devops2 enterprise-services-devops
       - name: Publish artifact
         run: mvn -file pom.xml deploy
 
