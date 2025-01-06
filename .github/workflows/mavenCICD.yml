@@ -56,7 +56,7 @@ jobs:
       - name: Build output statements
         run: |
           echo "echo dir listing..."
-          ls -al target 
+          ls -al 
       - name: Publish artifact
         run: mvn -file pom.xml deploy
 
