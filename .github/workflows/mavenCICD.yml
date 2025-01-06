@@ -65,7 +65,7 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}
     - name: Build with Maven
-      run: mvn --settings settings.xml deploy
+      run: mvn --batch_mode deploy
          
 
 
