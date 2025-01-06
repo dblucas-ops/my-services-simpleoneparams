@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: CODEQL Running
         run: |
-          echo "CODEQL Code Scan Running:"
+          echo "CODEQL Code Scan Running: Open 'Push on main' job output"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
   build:
     runs-on: ubuntu-latest
