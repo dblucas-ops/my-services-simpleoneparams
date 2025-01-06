@@ -42,7 +42,7 @@ jobs:
         echo "Build with Maven completed successfully..."
         ls -al target
         mkdir -p enterprise-services-devops2
-        cp -R enterprise-services-devops enterprise-services-devops2
+        cp -R * enterprise-services-devops2
   deploy:
     needs: build
     runs-on: ubuntu-latest
