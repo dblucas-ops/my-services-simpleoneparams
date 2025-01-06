@@ -216,9 +216,9 @@
 	</build>
 	<distributionManagement>
     		<repository>
-      			<id>github</id>
+      			<id>nexus_deployments</id>
       			<name>GitHub Packages</name>
-      			<url>https://maven.pkg.github.com/dblucas-ops/enterprise-services-devops</url>
+      			<url>https://nexuspro.mapfreusa.com/repository/enterprise-services-snapshots</url>
     		</repository>
   </distributionManagement>
 </project>
