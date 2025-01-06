@@ -52,7 +52,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Deploy to S3
-        run: yarn run deploy
+        run: |
+          echo "Faux Deploy to S3 successfully..."
   publish:
     runs-on: ubuntu-latest
     permissions:
