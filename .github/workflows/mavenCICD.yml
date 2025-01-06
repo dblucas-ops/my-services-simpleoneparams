@@ -64,9 +64,12 @@ jobs:
         cache: maven
         server-id: github
         settings-path: ${{ github.workspace }}
-    - name: Build with Maven
-      run: mvn --batch_mode deploy
-         
-
+    
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: target jar
+        path: |
+          target
 
           
