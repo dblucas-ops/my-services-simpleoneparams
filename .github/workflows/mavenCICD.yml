@@ -56,4 +56,7 @@ jobs:
       - name: Publish artifact
         run: |
           echo "Publish artifact:"
-          mvn -file pom.xml deploy
+          cd ..
+    		  mvn -file pom.xml deploy
+
+          
