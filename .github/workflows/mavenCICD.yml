@@ -1,4 +1,4 @@
-name: Maven Action Workflow 
+name: Maven Action Workflow DBL
 on:
   push:
     branches:
