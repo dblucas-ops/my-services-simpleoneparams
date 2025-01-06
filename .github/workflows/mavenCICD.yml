@@ -53,6 +53,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Build output statements
+        run: |
+          echo "echo dir listing..."
+          ls -al target 
       - name: Publish artifact
         run: mvn -file pom.xml deploy
 
