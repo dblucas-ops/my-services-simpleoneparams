@@ -60,8 +60,7 @@ jobs:
           echo "echo dir listing..."
           pwd
           ls -al
-          cd ..
-          ls -al
+          ls -al /tmp
           cp -R /tmp/enterprise-services-devops2/ .
       - name: Publish artifact
         run: mvn -file pom.xml deploy
