@@ -45,10 +45,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        run: |
-          echo "Deploy artifact:"
-          echo "$(date +'%Y-%m-%d %H:%M:%S')"
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Deploy to S3
+        run: yarn run deploy
   publish:
     runs-on: ubuntu-latest
     permissions:
@@ -64,7 +68,7 @@ jobs:
         cache: maven
         server-id: github
         settings-path: ${{ github.workspace }}  
-    - name: Deploy
+    - name: Publish
       run: mvn -file pom.xml install
     - name: Listing
       run: |
