@@ -54,9 +54,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish artifact
-        run: |
-          echo "Publish artifact:"
-          cd ..
-    		  mvn -file pom.xml deploy
+        run: mvn -file pom.xml deploy
 
           
