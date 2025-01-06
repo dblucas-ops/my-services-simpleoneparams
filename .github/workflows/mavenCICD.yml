@@ -45,8 +45,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Set AWS credentials
     - uses: keithweaver/aws-s3-github-action@v1.0.0
+      name: Set AWS credentials
       with:      
         command: cp
         source: ./devops-api-0.0.10-SNAPSHOT.jar
