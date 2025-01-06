@@ -1,4 +1,4 @@
-name: Maven Action Workflow DBL
+name: Maven Action Workflow
 on:
   push:
     branches:
@@ -37,7 +37,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - name: Build with Maven
       run: mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
-    - name: Print Statements
+    - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
         ls -al target 
@@ -53,9 +53,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
+      - name: Publish artifact
         run: |
-          echo "Deploy artifact:"
-          echo "$(date +'%Y-%m-%d %H:%M:%S')"
- 
-
+          echo "Publish artifact:"
+          mvn -file pom.xml deploy
