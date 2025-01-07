@@ -57,10 +57,14 @@ jobs:
     - name: Listing
       run: |
         ls -la target
-        unset AWS_ACCESS_KEY_ID
-        unset AWS_SECRET_ACCESS_KEY
         echo $AWS_ACCESS_KEY_ID
-        echo $AWS_SECRET_ACCESS_KEY      
+        echo $AWS_SECRET_ACCESS_KEY
+        echo "${{ secrets.AWS_ACCESS_KEY_ID }}"
+        echo "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+        echo "${ secrets.AWS_ACCESS_KEY_ID }"
+        echo "${ secrets.AWS_SECRET_ACCESS_KEY }"
+        echo "$secrets.AWS_ACCESS_KEY_ID"
+        echo "$secrets.AWS_SECRET_ACCESS_KEY"
     - name: Archive production artifacts
       uses: actions/upload-artifact@v4
       with:
