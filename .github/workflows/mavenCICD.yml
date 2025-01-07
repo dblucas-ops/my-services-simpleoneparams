@@ -8,10 +8,7 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-      - name: Initialization Example Secrets Use
-        env:
-          MY_DB_USERNAME: ${{ secrets.MY_DB_USERNAME }}
-          MY_DB_PASSWORD: ${{ secrets.MY_DB_PASSWORD }}
+      - name: Initialization
         run: |
           echo "Deploy artifact:"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
