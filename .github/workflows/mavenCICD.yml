@@ -61,8 +61,6 @@ jobs:
         echo $AWS_SECRET_ACCESS_KEY
         echo "${{ secrets.AWS_ACCESS_KEY_ID }}"
         echo "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
-        echo "${ secrets.AWS_ACCESS_KEY_ID }"
-        echo "${ secrets.AWS_SECRET_ACCESS_KEY }"
         echo "$secrets.AWS_ACCESS_KEY_ID"
         echo "$secrets.AWS_SECRET_ACCESS_KEY"
     - name: Archive production artifacts
