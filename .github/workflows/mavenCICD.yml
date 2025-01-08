@@ -52,11 +52,11 @@ jobs:
         cache: maven
         server-id: github
         settings-path: ${{ github.workspace }}
-    - name: Publish
+    - name: Publish to GitHub Packages
       run: mvn --batch-mode deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
     - name: Listing
       run: |
         ls -la target
-
+  
