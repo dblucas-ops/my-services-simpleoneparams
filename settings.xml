@@ -12,7 +12,7 @@
 	<mirror>
 		<id>nexus</id>
 		<mirrorOf>*</mirrorOf>
-		<url>https://nexuspro.mapfreusa.com/repository/maven-proxy-group/</url>
+		<url>https://maven.pkg.github.com/dblucas-ops/enterprise-services-devops-stub</url>
 	</mirror>
    </mirrors>
   
