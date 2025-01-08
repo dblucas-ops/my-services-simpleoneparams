@@ -37,7 +37,7 @@ jobs:
     - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
-  publish_deploy:
+  publish:
     needs: build
     runs-on: ubuntu-latest
     permissions:
