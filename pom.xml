@@ -216,7 +216,7 @@
 	</build>
 	<distributionManagement>
     		<repository>
-      			<id>nexus_deployments</id>
+      			<id>github</id>
       			<name>GitHub Packages</name>
       			<url>https://nexuspro.mapfreusa.com/repository/enterprise-services-snapshots</url>
     		</repository>
