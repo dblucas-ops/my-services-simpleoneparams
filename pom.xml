@@ -218,11 +218,9 @@
     		<repository>
       			<id>github</id>
       			<name>GitHub Packages</name>
-      			<url>https://nexuspro.mapfreusa.com/repository/enterprise-services-snapshots</url>
+      			<url>https://maven.pkg.github.com/dblucas-ops/devops</url>
     		</repository>
   </distributionManagement>
 </project>
-
-
 
 
