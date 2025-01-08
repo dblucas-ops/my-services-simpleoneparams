@@ -54,7 +54,9 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}  
     - name: Publish
-      run: mvn -file pom.xml deploy
+      run: mvn --batch-mode deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
     - name: Listing
       run: |
         ls -la target
