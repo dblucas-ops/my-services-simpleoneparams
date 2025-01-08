@@ -54,7 +54,7 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}  
     - name: Publish
-      run: mvn -file pom.xml install
+      run: mvn -file pom.xml deploy
     - name: Listing
       run: |
         ls -la target
