@@ -55,7 +55,7 @@ jobs:
     - name: Publish
       run: mvn --batch-mode deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
     - name: Listing
       run: |
         ls -la target
