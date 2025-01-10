@@ -220,7 +220,6 @@
 	    <url>https://maven.pkg.github.com/dblucas-ops/enterprise-services-devops-stub</url>
 	  </repository>
 	</distributionManagement>
-  </distributionManagement>
 </project>
 
 
