@@ -53,9 +53,7 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}
     - name: Publish to GitHub Packages
-      run: mvn deploy -Dmaven.resolver.transport=wagon
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
+      run: mvn deploy
     - name: Listing
       run: |
         ls -la target
