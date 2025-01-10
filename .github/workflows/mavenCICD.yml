@@ -53,7 +53,7 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}
     - name: Publish to GitHub Packages
-      run: mvn deploy
+      run: mvn -s .m2/settings.xml deploy
       env:
         GITHUB_TOKEN: ${{ github.token }}    
     - name: Listing
