@@ -54,6 +54,8 @@ jobs:
         settings-path: ${{ github.workspace }}
     - name: Publish to GitHub Packages
       run: mvn deploy
+      env:
+        GITHUB_TOKEN: ${{ github.token }}    
     - name: Listing
       run: |
         ls -la target
