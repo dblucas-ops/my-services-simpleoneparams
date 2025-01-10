@@ -216,10 +216,15 @@
 	</build>
 	<distributionManagement>
 	  <repository>
-	    <id>github</id>
-	    <url>https://maven.pkg.github.com/dblucas-ops/enterprise-services-devops-stub</url>
+	   <id>github</id>
+	   <name>Github</name>
+	   <url>https://maven.pkg.github.com/blucas-ops/enterprise-services-devops-stub</url>
 	  </repository>
-	</distributionManagement>
+	  <snapshotRepository>
+	   <id>github</id>
+	   <url>https://maven.pkg.github.com/blucas-ops/enterprise-services-devops-stub</url>
+	  </snapshotRepository>
+	 </distributionManagement>
 </project>
 
 
