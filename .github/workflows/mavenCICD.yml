@@ -57,4 +57,4 @@ jobs:
         echo "Faux publish..."
     - name: Listing
       run: |
-        ls -la target
+        ls -la
