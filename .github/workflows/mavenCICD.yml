@@ -53,9 +53,8 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}
     - name: Publish to GitHub Packages
-      run: mvn -s .github/workflows/settings.xml deploy
-      env:
-        GITHUB_TOKEN: ${{ github.token }}    
+      run: |
+        echo "Faux publish..."
     - name: Listing
       run: |
         ls -la target
