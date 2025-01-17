@@ -66,3 +66,11 @@ jobs:
     - name: Listing
       run: |
         ls -la
+  post_action:
+    needs: faux_publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Action Running
+        run: |
+          echo "Post Action..."
+          echo "$(date +'%Y-%m-%d %H:%M:%S')"
