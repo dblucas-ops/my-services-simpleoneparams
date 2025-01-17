@@ -36,6 +36,14 @@ jobs:
     - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
+  faux_deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Faux Deploy Running
+        run: |
+          echo "Faux Deploy..."
+          echo "$(date +'%Y-%m-%d %H:%M:%S')"
   faux_publish:
     needs: build
     runs-on: ubuntu-latest
