@@ -12,8 +12,10 @@ jobs:
     steps:
       - name: Initialization
         run: |
-          echo "Initialization:"
+          echo "Initialization and Configuration:"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
+          CONFIGS=`cat $GITHUB_ENV`
+          echo "$CONFIGS" >> $GITHUB_ENV
   codeql:
     needs: init
     runs-on: ubuntu-latest
