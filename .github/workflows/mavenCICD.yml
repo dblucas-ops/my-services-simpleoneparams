@@ -1,4 +1,4 @@
-name: Maven Action Workflow DBL 
+giname: Maven Action Workflow DBL 
 on:
   push:
     branches:
@@ -39,6 +39,7 @@ jobs:
           CONFIGS=`cat $GITHUB_JOB.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
           echo "$GITHUB_ENV"
+          echo "$GITHUB_JOB.properties"
           mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
     - name: Build output statements
       run: |
