@@ -22,7 +22,7 @@ jobs:
           echo "Repository Name/Owner"
           echo "$GITHUB_REPOSITORY"
           echo "Repository Owner"
-          echo "$GITHUB_OWNER"
+          echo "$GITHUB_REPOSITORY_OWNER"
           echo "Workflow Name"
           echo "$GITHUB_WORKFLOW"
           REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}
