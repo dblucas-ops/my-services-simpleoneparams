@@ -44,7 +44,7 @@ jobs:
         echo $MY_CONTEXT
         echo $GITHUB_ENV
         cat $GITHUB_ENV
-        CONFIGS=`cat job.properties`
+        CONFIGS=`cat ${{ github.workspace }}/job.properties`
         echo "$CONFIGS" >> $GITHUB_ENV
   faux_deploy:
     needs: build
