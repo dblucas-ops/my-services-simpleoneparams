@@ -55,7 +55,7 @@ faux_deploy:
         run: |
           echo "Faux Deploy..."
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
-  faux_publish:
+faux_publish:
     needs: build
     runs-on: ubuntu-latest
     permissions:
