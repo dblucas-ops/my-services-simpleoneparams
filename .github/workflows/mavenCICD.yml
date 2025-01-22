@@ -52,7 +52,7 @@ jobs:
     - name: Build with Maven
       run: |
           REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}
-          CONFIGS=`cat $REPO_NAME.properties`
+          CONFIGS=`cat ${{ github.workspace }}/$REPO_NAME.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
           echo "$REPO_NAME.properties"
           mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
