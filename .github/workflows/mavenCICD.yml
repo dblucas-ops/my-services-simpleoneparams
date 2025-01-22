@@ -1,4 +1,4 @@
-giname: Maven Action Workflow DBL 
+name: Maven Action Workflow DBL 
 on:
   push:
     branches:
@@ -48,7 +48,7 @@ jobs:
         echo "$CONFIGS" >> $GITHUB_ENV
         echo "${{ env.param1 }}"
         echo "${{ env.param2 }}"
-faux_deploy:
+  faux_deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -56,7 +56,7 @@ faux_deploy:
         run: |
           echo "Faux Deploy..."
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
-faux_publish:
+  faux_publish:
     needs: build
     runs-on: ubuntu-latest
     permissions:
