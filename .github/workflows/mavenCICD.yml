@@ -5,7 +5,7 @@ on:
       - main
 env:
   MY_CONTEXT: "Local variable: File scope to all jobs within the yml file"
-  REPO_NAME: ${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/} 
+  REPO_NAME: ""
 jobs:
   init:
     runs-on: ubuntu-latest
@@ -51,6 +51,7 @@ jobs:
         settings-path: ${{ github.workspace }}
     - name: Build with Maven
       run: |
+          REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}
           CONFIGS=`cat $REPO_NAME.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
           echo "$REPO_NAME.properties"
@@ -60,8 +61,6 @@ jobs:
         echo "Build with Maven completed successfully..."
         CONFIGS=`cat ${{ github.workspace }}/$REPO_NAME.properties`
         echo "$CONFIGS" >> $GITHUB_ENV
-        echo "${{ env.param1 }}"
-        echo "${{ env.param2 }}"
   faux_deploy:
     needs: build
     runs-on: ubuntu-latest
