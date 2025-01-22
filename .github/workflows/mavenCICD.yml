@@ -5,6 +5,7 @@ on:
       - main
 env:
   MY_CONTEXT: "Local variable: File scope to all jobs within the yml file"
+  REPO_NAME: ${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/} 
 jobs:
   init:
     runs-on: ubuntu-latest
@@ -25,8 +26,8 @@ jobs:
           echo "Workflow Name"
           echo "$GITHUB_WORKFLOW"
           REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}
-          echo "Workflow Name"
-          echo "$Repository Name"
+          echo "Repository Name"
+          echo "$REPO_NAME"
   codeql:
     needs: init
     runs-on: ubuntu-latest
@@ -50,14 +51,14 @@ jobs:
         settings-path: ${{ github.workspace }}
     - name: Build with Maven
       run: |
-          CONFIGS=`cat $GITHUB_REPOSITORY.properties`
+          CONFIGS=`cat $REPO_NAME.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
           echo "$GITHUB_REPOSITORY.properties"
           mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
     - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
-        CONFIGS=`cat ${{ github.workspace }}/$GITHUB_REPOSITORY.properties`
+        CONFIGS=`cat ${{ github.workspace }}/$REPO_NAME.properties`
         echo "$CONFIGS" >> $GITHUB_ENV
         echo "${{ env.param1 }}"
         echo "${{ env.param2 }}"
