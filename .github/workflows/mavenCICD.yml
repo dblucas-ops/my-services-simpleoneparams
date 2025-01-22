@@ -8,9 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initialization
+        env:
+          MY_CONTEXT: "DBL Context"          
         run: |
-          echo "Deploy artifact:"
+          echo "Initialization:"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
+          echo $MY_CONTEXT
   codeql:
     needs: init
     runs-on: ubuntu-latest
