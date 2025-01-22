@@ -42,7 +42,7 @@ jobs:
         echo "Build with Maven completed successfully..."
         echo $MY_CONTEXT
         echo $GITHUB_ENV
-        "cat $GITHUB_ENV"
+        cat $GITHUB_ENV
   faux_deploy:
     needs: build
     runs-on: ubuntu-latest
