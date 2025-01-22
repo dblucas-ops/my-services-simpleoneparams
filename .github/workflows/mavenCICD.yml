@@ -43,8 +43,6 @@ jobs:
     - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
-        echo $MY_CONTEXT
-        echo $GITHUB_ENV
         cat $GITHUB_ENV
         CONFIGS=`cat ${{ github.workspace }}/job.properties`
         echo "$CONFIGS" >> $GITHUB_ENV
