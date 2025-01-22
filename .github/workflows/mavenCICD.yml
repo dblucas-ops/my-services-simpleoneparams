@@ -37,8 +37,8 @@ jobs:
     - name: Build with Maven
       run: |
           CONFIGS=`cat job.properties`
-          echo "$CONFIGS"
           echo "$CONFIGS" >> $GITHUB_ENV
+          echo "$GITHUB_ENV"
           mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
     - name: Build output statements
       run: |
