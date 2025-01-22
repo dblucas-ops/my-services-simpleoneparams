@@ -13,6 +13,8 @@ jobs:
         run: |
           echo "Initialization and Configuration:"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
+          echo "Run Number:"
+          echo  "$GITHUB_RUN_NUMBER"
   codeql:
     needs: init
     runs-on: ubuntu-latest
