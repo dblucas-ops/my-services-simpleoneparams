@@ -14,7 +14,7 @@ jobs:
           echo "Initialization and Configuration:"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
           echo "${{ github.workspace }}"
-          CONFIGS=`cat ${{ github.workspace }}/job.properties`
+          CONFIGS=`cat job.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
   codeql:
     needs: init
