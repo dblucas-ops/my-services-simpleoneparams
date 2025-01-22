@@ -52,6 +52,7 @@ jobs:
     - name: Build with Maven
       run: |
           echo "REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}" >> $GITHUB_ENV
+          REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}
           echo "$REPO_NAME.properties"
           CONFIGS=`cat ${{ github.workspace }}/$REPO_NAME.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
@@ -60,6 +61,7 @@ jobs:
       run: |
         echo "Build with Maven completed successfully..."
         echo "REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}" >> $GITHUB_ENV
+        REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}
         CONFIGS=`cat ${{ github.workspace }}/$REPO_NAME.properties`
         echo "$CONFIGS" >> $GITHUB_ENV
   faux_deploy:
