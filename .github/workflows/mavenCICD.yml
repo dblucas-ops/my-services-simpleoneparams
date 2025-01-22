@@ -45,8 +45,9 @@ jobs:
         echo "Build with Maven completed successfully..."
         CONFIGS=`cat ${{ github.workspace }}/job.properties`
         echo "$CONFIGS" >> $GITHUB_ENV
-        echo "${{ env.build }}"
-  faux_deploy:
+        echo "${{ env.param1 }}"
+        echo "${{ env.param2 }}"
+faux_deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
