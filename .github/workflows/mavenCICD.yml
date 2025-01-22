@@ -5,7 +5,6 @@ on:
       - main
 env:
   MY_CONTEXT: "Local variable: File scope to all jobs within the yml file"
-  GITHUB_ENV: "job.properties"
 jobs:
   init:
     runs-on: ubuntu-latest
@@ -14,7 +13,7 @@ jobs:
         run: |
           echo "Initialization and Configuration:"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
-          CONFIGS=`cat $GITHUB_ENV`
+          CONFIGS=`cat job.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
   codeql:
     needs: init
