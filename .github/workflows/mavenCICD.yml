@@ -36,14 +36,14 @@ jobs:
         settings-path: ${{ github.workspace }}
     - name: Build with Maven
       run: |
-          CONFIGS=`cat job.properties`
+          CONFIGS=`cat $GITHUB_JOB.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
           echo "$GITHUB_ENV"
           mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
     - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
-        CONFIGS=`cat ${{ github.workspace }}/job.properties`
+        CONFIGS=`cat ${{ github.workspace }}/$GITHUB_JOB.properties`
         echo "$CONFIGS" >> $GITHUB_ENV
         echo "${{ env.param1 }}"
         echo "${{ env.param2 }}"
