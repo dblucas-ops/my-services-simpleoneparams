@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+env:
+  MY_CONTEXT: "DBL Context"          
 jobs:
   init:
     runs-on: ubuntu-latest
