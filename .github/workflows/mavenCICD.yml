@@ -17,8 +17,10 @@ jobs:
           echo "$GITHUB_RUN_NUMBER"
           echo "Job Name"
           echo "$GITHUB_JOB"
-          echo "Repository Name"
+          echo "Repository Name/Owner"
           echo "$GITHUB_REPOSITORY"
+          echo "Workflow Name"
+          echo "$GITHUB_WORKFLOW"
   codeql:
     needs: init
     runs-on: ubuntu-latest
