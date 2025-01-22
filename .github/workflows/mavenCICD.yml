@@ -10,12 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initialization
-        env:
-          MY_CONTEXT: "DBL Context"          
         run: |
           echo "Initialization:"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
-          echo $MY_CONTEXT
   codeql:
     needs: init
     runs-on: ubuntu-latest
@@ -42,7 +39,7 @@ jobs:
     - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
-        echo "${{ env.param1 }} : ${{ env.param2 }}"
+        echo $MY_CONTEXT
   faux_deploy:
     needs: build
     runs-on: ubuntu-latest
