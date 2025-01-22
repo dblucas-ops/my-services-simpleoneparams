@@ -13,8 +13,8 @@ jobs:
         run: |
           echo "Initialization and Configuration:"
           echo "$(date +'%Y-%m-%d %H:%M:%S')"
-          echo "${{ github.workspace }}"
           CONFIGS=`cat job.properties`
+          echo "$CONFIGS"
           echo "$CONFIGS" >> $GITHUB_ENV
   codeql:
     needs: init
