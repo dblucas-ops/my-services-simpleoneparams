@@ -4,7 +4,8 @@ on:
     branches:
       - main
 env:
-  MY_CONTEXT: "Local variable: File scope to all jobs within the yml file"          
+  MY_CONTEXT: "Local variable: File scope to all jobs within the yml file"
+  GITHUB_ENV: "job.properties"
 jobs:
   init:
     runs-on: ubuntu-latest
