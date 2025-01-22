@@ -37,6 +37,7 @@ jobs:
     - name: Build output statements
       run: |
         echo "Build with Maven completed successfully..."
+        echo "${{ env.param1 }} : ${{ env.param2 }}"
   faux_deploy:
     needs: build
     runs-on: ubuntu-latest
