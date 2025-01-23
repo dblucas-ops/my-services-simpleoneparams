@@ -1,5 +1,6 @@
 name: Maven Action Workflow DBL 
 on:
+  workflow_call:
   push:
     branches:
       - main
@@ -56,6 +57,8 @@ jobs:
           echo "$REPO_NAME.properties"
           CONFIGS=`cat ${{ github.workspace }}/$REPO_NAME.properties`
           echo "$CONFIGS" >> $GITHUB_ENV
+          pwd
+          ls -al
           mvn -file pom.xml install -Denv.build.num=1234 -Denv.change.set.num=1234frtt
     - name: Build output statements
       run: |
@@ -77,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      packages: read
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
