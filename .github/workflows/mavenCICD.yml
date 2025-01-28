@@ -9,7 +9,7 @@ env:
   REPO_NAME: ""
 jobs:
   init:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Initialization
         id: vars
@@ -37,7 +37,7 @@ jobs:
           ./run.sh
   codeql:
     needs: init
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: CODEQL Running
         run: |
@@ -75,7 +75,7 @@ jobs:
         echo "$CONFIGS" >> $GITHUB_ENV
   faux_deploy:
     needs: build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Faux Deploy Running
         run: |
@@ -105,7 +105,7 @@ jobs:
         ls -la
   post_action:
     needs: faux_publish
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Post Action Running
         run: |
