@@ -7,6 +7,7 @@ on:
 env:
   MY_CONTEXT: "Local variable: File scope to all jobs within the yml file"
   REPO_NAME: ""
+  MYTOKEN2: "${{ MYTOKEN }}"
 jobs:
   init:
     runs-on: ubuntu-latest
@@ -33,7 +34,7 @@ jobs:
           mkdir actions-runner && cd actions-runner
           curl -o actions-runner-linux-x64-2.321.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.321.0/actions-runner-linux-x64-2.321.0.tar.gz
           tar xzf ./actions-runner-linux-x64-2.321.0.tar.gz
-          ./config.sh --url https://github.com/dblucas-ops/my-services-simpleoneparams --token ${{MYTOKEN}}
+          ./config.sh --url https://github.com/dblucas-ops/my-services-simpleoneparams --token ${{ env.MYTOKEN2 }}
           ./run.sh
   codeql:
     needs: init
