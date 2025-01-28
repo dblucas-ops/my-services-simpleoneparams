@@ -1,4 +1,4 @@
-name: Maven Action Workflow DBL 
+name: Maven Action Workflow DBL
 on:
   workflow_call:
   push:
